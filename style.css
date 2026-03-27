@@ -28,6 +28,45 @@
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --panel: #0A0A0A;
+    --ink: #FFFFFF;
+    --ink-2: #AAAAAA;
+    --border: 1px solid #FFFFFF;
+    --border-2: 2px solid #FFFFFF;
+  }
+
+  img {
+    filter: grayscale(100%) brightness(0.85);
+  }
+
+  /* Structural selection Inversion in Dark Mode */
+  ::selection {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  .modal-overlay {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .footer-profile {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+
+  #mainFooter {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+  }
+
+  #mainFooter .h-unit {
+    border: var(--border) !important;
+    color: var(--ink) !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -686,21 +725,25 @@ button,
   text-transform: uppercase;
 }
 
+#mainFooter {
+  background: var(--ink);
+  color: var(--bg);
+}
+
 .footer-profile {
   display: flex;
   gap: 48px;
   align-items: flex-start;
   margin-bottom: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 
 .footer-profile-img {
   width: 160px;
   height: 160px;
   flex-shrink: 0;
-  border: 1px solid #fff;
+  border: var(--border);
   background: var(--ink);
   overflow: hidden;
 }
