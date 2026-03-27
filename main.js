@@ -104,20 +104,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const accentClasses = ['accent-blue', 'accent-tan', 'accent-gray'];
+
       posts.forEach((post, index) => {
         const item = document.createElement('div');
-        item.className = `timeline-item ${index % 2 === 0 ? 'right' : 'left'}`;
+        item.className = `timeline-item`;
         
+        const accentClass = accentClasses[index % accentClasses.length];
+
         item.innerHTML = `
-          <div class="timeline-node">[ ${post.date} ]</div>
-          <div class="timeline-card">
+          <div class="timeline-node">${post.date}</div>
+          <div class="timeline-card ${accentClass} u-radius">
             <div class="timeline-card-image">
               <img src="${post.image}" alt="${post.title}">
             </div>
             <div class="timeline-card-content">
-              <span class="timeline-tag">${post.category}</span>
+              <div class="u-divider">
+                <span>Date</span>
+                <span class="u-pill" style="margin-left: auto;">${post.date}</span>
+              </div>
               <h3 class="timeline-card-title">${post.title}</h3>
               <p class="timeline-card-summary">${post.summary}</p>
+              <div style="margin-top: 32px; display: flex; gap: 12px;">
+                <span class="u-pill">EN</span>
+                <span class="u-pill">${post.category.toUpperCase()}</span>
+              </div>
             </div>
           </div>
         `;
