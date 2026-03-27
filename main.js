@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const m = String(now.getMonth() + 1).padStart(2, '0');
     const d = String(now.getDate()).padStart(2, '0');
     const dateStr = `${y}.${m}.${d}`;
-    
+
     if (heroDate) {
       heroDate.textContent = dateStr;
     }
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(item) {
     const isSkill = item.classList.contains('skill-grid-item') || item.classList.contains('list-system-item');
-    
+
     if (isSkill) {
       const id = item.querySelector('.skill-id, .item-id').innerText;
       const name = item.querySelector('.skill-name, .item-label').innerText;
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalTitle.innerText = name;
       modalDesc.innerText = desc;
 
-      // Inject Skill Specs
+      // Inject Skill Loader & Bar
       const specsArea = modal.querySelector('.modal-text-wrap > div:last-child');
       specsArea.innerHTML = `
         <span class="h-unit">Structural Specs</span>
@@ -102,7 +102,58 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${rev}</p>
           </div>
         </div>
+
+        <span class="h-unit">EXPERTISE LOADER</span>
+        <div class="skill-loader-wrap">
+          <div class="loader-header">
+            <span>Power Index</span>
+            <div class="loader-number-wrap">
+              <span class="loader-number" id="loaderNumber">0</span>
+              <span>%</span>
+            </div>
+          </div>
+          <div class="loader-track">
+            <div class="loader-fill" id="loaderFill"></div>
+          </div>
+          <div class="loader-markers">
+            <span>0%</span>
+            <span>25%</span>
+            <span>50%</span>
+            <span>75%</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <div class="skill-bar-wrap">
+          <div class="skill-bar">
+            <div class="skill-bar-fill" id="skillBarFill"></div>
+          </div>
+          <span class="skill-percent">${level}%</span>
+        </div>
       `;
+
+      // Animate Loader & Counter
+      setTimeout(() => {
+        const fill = document.getElementById('loaderFill');
+        const num = document.getElementById('loaderNumber');
+        const bar = document.getElementById('skillBarFill');
+
+        if (fill) fill.style.width = level + '%';
+        if (bar) bar.style.width = level + '%';
+
+        // Count Up
+        let current = 0;
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function updateCount(timestamp) {
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          current = Math.floor(progress * level);
+          if (num) num.innerText = current;
+          if (progress < 1) requestAnimationFrame(updateCount);
+        }
+        requestAnimationFrame(updateCount);
+      }, 300);
 
     } else {
       // Original Project Modal Logic
@@ -135,12 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = 'auto';
   }
 
   // Work Items
