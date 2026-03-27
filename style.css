@@ -265,10 +265,10 @@ img {
     box-sizing: border-box;
   }
 
-  /* Hero title size */
+  /* Hero title — must fit within the tiered container */
   .h-massive {
-    font-size: clamp(36px, 11vw, 52px);
-    line-height: 0.9;
+    font-size: clamp(26px, 7.5vw, 34px);
+    line-height: 0.92;
     letter-spacing: -0.03em;
     overflow-wrap: break-word;
     word-break: break-word;
