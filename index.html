@@ -275,14 +275,14 @@
         </div>
 
         <!-- Social + Clock: 2x2 grid -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 16px;">
-          <!-- Row 1 left: CONNECT // SOCIAL label -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 16px; column-gap: 0;">
+          <!-- Row 1 left: CONNECT // SOCIAL label — full cell width -->
           <div>
-            <span class="h-unit" style="margin-bottom: 0;">Connect // Social</span>
+            <span class="h-unit" style="margin-bottom: 0; display: block; width: 100%; box-sizing: border-box; border-right: none;">Connect // Social</span>
           </div>
-          <!-- Row 1 right: WIB TIMEZONE label, aligned right -->
-          <div style="text-align: right;">
-            <span class="h-unit" style="margin-bottom: 0;">WIB TIME ZONE / IDN</span>
+          <!-- Row 1 right: WIB TIMEZONE label — full cell width -->
+          <div>
+            <span class="h-unit" style="margin-bottom: 0; display: block; width: 100%; box-sizing: border-box; text-align: right;">WIB TIME ZONE / IDN</span>
           </div>
           <!-- Row 2 left: social icons -->
           <div style="display: flex; gap: 20px; align-items: center; padding-top: 4px;">
