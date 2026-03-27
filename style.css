@@ -96,6 +96,9 @@ img {
   letter-spacing: 0.2em;
   padding: 8px 12px;
   border: var(--border);
+  /* Enforced Black Outline */
+  background: var(--panel);
+  color: var(--ink);
   display: inline-block;
   margin-bottom: 24px;
 }
@@ -207,15 +210,16 @@ img {
    NAVIGATION / BRANDS
    ============================================================ */
 .nav-bar {
-  border-bottom: var(--border);
+  border: var(--border);
   padding: 15px var(--pad);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  top: 0;
+  top: 16px;
   background: var(--bg);
   z-index: 100;
+  margin: 0 16px 16px 16px;
 }
 
 .brand-id {
@@ -225,60 +229,125 @@ img {
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — MOBILE FIRST
    ============================================================ */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   :root {
-    --pad: 24px;
+    --pad: 20px;
   }
 
-  /* Floating Grid Effect */
+  /* Floating tiered frame */
   .structure-wrap {
-    margin: 16px;
+    margin: 12px;
     border: var(--border);
   }
 
   .module {
+    display: flex !important;
+    /* override grid → flex column */
+    flex-direction: column;
     border-bottom: var(--border);
   }
 
-  .h-massive {
-    font-size: clamp(32px, 12vw, 48px);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-  }
-
+  /* All grid cells go full-width stacked */
   .hero-cell-left,
   .hero-cell-right,
   .content-cell-left,
   .content-cell-right,
   .work-item,
-  .skill-row {
-    grid-column: span 12;
-    border-right: none;
+  .skill-row,
+  .stack-half {
+    grid-column: span 12 !important;
+    width: 100% !important;
+    border-right: none !important;
     border-bottom: var(--border);
-    padding: 32px var(--pad);
-    /* Increased vertical air */
+    padding: 24px var(--pad) !important;
+    box-sizing: border-box;
   }
 
+  /* Hero title size */
+  .h-massive {
+    font-size: clamp(36px, 11vw, 52px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Hero right cell — no border bottom on last cell inside hero */
   .hero-cell-right {
     background: var(--bg);
-    /* Consistency on mobile */
+    border-bottom: none !important;
   }
 
+  /* About 2-col inner grids — keep side-by-side even on mobile */
+  /* (intentionally NOT overriding to 1fr so Core Focus + Methodology stay 2-col) */
+
+  /* Work items: full width, stacked */
+  .work-item {
+    flex: 1 1 100% !important;
+  }
+
+  /* Work image taller on mobile */
+  .work-img-container {
+    aspect-ratio: 16/9;
+  }
+
+  /* Section header label row — tighter */
+  .module-inner {
+    padding: 16px var(--pad) !important;
+  }
+
+  /* Skill grid single col */
+  .skill-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* NAV bar */
   .nav-bar {
     padding: 12px 16px;
-    margin: 0 16px;
-    /* Align with structure-wrap */
+    margin: 12px;
     border: var(--border);
-    border-bottom: none;
-    top: 16px;
+    top: 12px;
   }
 
-  .status-indicator {
-    display: none;
+  /* CONNECT // SOCIAL tag — needs strong outline */
+  #mainFooter .h-unit {
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    background: transparent !important;
+    color: #fff !important;
   }
 
+  /* Footer profile: portrait + bio, no extra bottom gap */
+  .footer-profile {
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .footer-profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Footer bottom: social left, clock right → stack on mobile */
+  .footer-bottom-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+  }
+
+  .footer-clock-wrap {
+    text-align: left !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px !important;
+  }
+
+
+
+  /* Hide custom cursor on touch */
   html,
   body,
   a,
@@ -286,7 +355,6 @@ img {
   .work-item,
   #emailClick {
     cursor: auto !important;
-    /* Restore default cursor on mobile touch */
   }
 
   #customCursor {
@@ -646,17 +714,7 @@ button,
   }
 }
 
-@media (max-width: 600px) {
-  .card-stack-container {
-    padding: 60px 20px;
-    min-height: 380px;
-  }
 
-  .card-stack {
-    max-width: 280px;
-    height: 180px;
-  }
-}
 
 /* ============================================================
    TECHNICAL INDEX GRID: PRECISION MATRIX
@@ -725,34 +783,25 @@ button,
   pointer-events: none !important;
 }
 
-@media (max-width: 600px) {
-  .skill-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* Scroll Progress Bar */
-#scrollProgress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--ink);
-  /* Match brand color */
-  transform: scaleX(0);
-  transform-origin: left;
-  z-index: 10;
-}
 
 /* Footer Profile Identity */
 .footer-profile {
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-social-row {
+  margin-bottom: 20px;
+}
+
+.footer-icons-row {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -770,6 +819,12 @@ button,
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
+}
+
+#mainFooter .h-unit {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  color: #FFFFFF;
 }
 
 
@@ -805,10 +860,4 @@ button,
   font-size: 11px;
   min-width: 40px;
   text-align: right;
-}
-@media (max-width: 600px) {
-  .footer-profile {
-    flex-direction: column;
-    gap: 20px;
-  }
 }

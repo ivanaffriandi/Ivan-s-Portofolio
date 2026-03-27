@@ -238,15 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Scroll Progress Tracking
-    const progressBar = document.getElementById('scrollProgress');
-    if (progressBar) {
-      window.addEventListener('scroll', () => {
-        const winScroll = window.scrollY;
-        const height = document.documentElement.scrollHeight - window.innerHeight;
-        const scrolled = winScroll / height;
-        progressBar.style.transform = `scaleX(${scrolled})`;
-      });
-    }
+    // Removed scroll progress logic
   }
 });
