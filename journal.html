@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivan Affriandi — Engineering Logs // SYST-LOG</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Markdown Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="journal-page">
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom Cursor -->
+  <div id="customCursor"></div>
+
+  <!-- Menu Overlay -->
+  <div id="menuOverlay" class="menu-overlay">
+    <button class="menu-close" id="closeMenu">CLOSE // X</button>
+    <div class="menu-content">
+      <nav class="menu-nav">
+        <a href="index.html" class="menu-link" data-text="HOME">HOME</a>
+        <a href="portfolio.html" class="menu-link" data-text="PORTFOLIO">PORTFOLIO</a>
+        <a href="journal.html" class="menu-link active" data-text="JOURNAL">JOURNAL</a>
+        <a href="mailto:ivanaffriandi@icloud.com" class="menu-link" data-text="CONTACT">CONTACT</a>
+      </nav>
+      <div class="menu-footer">
+        <span class="h-unit">IA-SYST-NAV-02</span>
+        <div id="menuClock" class="mono-clock">00:00:00</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-bar">
+    <div class="brand-id">IVAN AFFRIANDI</div>
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <button id="menuToggle" class="menu-toggle-btn">MENU // +</button>
+    </div>
+  </nav>
+
+  <div class="structure-wrap">
+    <header class="module" style="background: var(--panel);">
+      <div class="module-inner">
+        <span class="h-unit">01 // Personal Journal</span>
+        <h1 class="h-massive">System<br>Journal.</h1>
+      </div>
+    </header>
+
+    <!-- Filter Status Module -->
+    <section class="module filter-status-bar">
+      <div class="module-inner">
+        <div class="status-grid">
+          <div class="status-cell">
+            <span class="h-unit mini">SYST_STATUS</span>
+            <div class="status-value highlight">LOGGING_ACTIVE</div>
+          </div>
+          <div class="status-cell">
+            <span class="h-unit mini">CHANNEL_FILTER</span>
+            <div class="filter-flex-container">
+              <ul class="filter-list-horizontal">
+                <li class="filter-item active" data-filter="all">ALL_LOGS</li>
+                <li class="filter-item" data-filter="thoughts">THOUGHTS</li>
+                <li class="filter-item" data-filter="lifestyle">LIFESTYLE</li>
+                <li class="filter-item" data-filter="observations">OBSERVATIONS</li>
+              </ul>
+            </div>
+          </div>
+          <div class="status-cell" style="border-right: none;">
+            <span class="h-unit mini">INDEX_VER</span>
+            <div class="status-value">SYST-LOG.v3.1</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Timeline -->
+    <section class="module no-border-top timeline-module">
+      <div class="module-inner timeline-inner">
+        <div id="blogTimeline" class="blog-timeline">
+           <div class="timeline-spine"></div>
+          <!-- Dynamically loaded from logs.json -->
+          <div class="log-loading">ALIGNING_SYSTEM_SPINE...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post Detail Modal -->
+    <div id="blogModal" class="blog-modal">
+      <div class="blog-modal-header">
+        <div class="brand-id">IA-SYST-BLOG-VIEW</div>
+        <button id="closeBlogModal" class="menu-close" style="position:static;">CLOSE // X</button>
+      </div>
+      <div class="blog-modal-content">
+        <div class="blog-post-header">
+          <span id="postCategory" class="h-unit">CATEGORY</span>
+          <h2 id="postTitle" class="h-massive">POST TITLE</h2>
+          <div class="post-meta-strip">
+            <span id="postId" class="mono-id">LOG-000</span>
+            <span id="postDate" class="mono-date">0000.00.00</span>
+            <span id="postReadTime" class="mono-read">0 MIN READ</span>
+          </div>
+        </div>
+        <div class="blog-post-hero">
+          <img id="postImage" src="" alt="Post Image">
+        </div>
+        <div id="postContent" class="blog-post-body markdown-content">
+          <!-- Markdown Rendered Content -->
+        </div>
+        <div class="blog-post-footer">
+          <span class="h-unit">End of Log</span>
+          <div id="postTags" class="tag-cloud">
+            <!-- Tags dynamic -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="mainFooter" class="module" style="background: var(--ink); color: var(--bg); border-bottom: none;">
+      <div class="module-inner">
+        <div class="footer-bottom-flex">
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>LOGGING ACTIVE // BY IVAN AFFRIANDI</span>
+          </div>
+          <div class="footer-clock-wrap">
+            <div id="footerClock" class="mono-clock">00:00:00</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
