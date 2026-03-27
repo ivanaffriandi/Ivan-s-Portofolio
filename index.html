@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivan Affriandi — Digital Architecture // IA-SYST-01</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="customCursor"></div>
+
+  <nav class="nav-bar">
+    <div class="brand-id">IVAN AFFRIANDI</div>
+    <div class="status-indicator">
+      <span class="status-dot"></span>
+      SYSTEM STATUS: ONLINE // SYST-01
+    </div>
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <a href="#mainFooter" class="h-unit"
+        style="margin-bottom: 0; background: var(--ink); color: var(--bg); border: none;">BIO // IDENT</a>
+    </div>
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress"></div>
+  </nav>
+
+  <div class="structure-wrap">
+
+    <!-- MODULE 01: HERO -->
+    <header class="module">
+      <div class="hero-cell-left">
+        <span class="h-unit">Structural System / IA-01</span>
+        <h1 class="h-massive">Digital<br>Architecture.</h1>
+      </div>
+      <div class="hero-cell-right">
+        <div style="font-family: var(--mono); font-size: 11px; margin-bottom: 24px;">
+          DATE: <span id="heroDate">2026.03.26</span><br>LOC: JAKARTA // IDN
+        </div>
+        <p class="p-data">
+          Refining digital storefronts and ecosystems through rigid architectural logic
+          and high-performance engineering.
+        </p>
+      </div>
+    </header>
+
+    <!-- MODULE 02: ABOUT / BIO -->
+    <section class="module">
+      <div class="content-cell-left">
+        <span class="h-unit">01 // About</span>
+      </div>
+      <div class="content-cell-right">
+        <p class="p-data" style="margin-bottom: 32px;">
+          Ivan Affriandi bridges the gap between complex infrastructure and refined
+          minimalist design. We focus on structural honesty, building high-performance
+          Shopify environments and API layers that prioritize functional excellence.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div>
+            <span class="h-unit">Core Focus</span>
+            <ul style="list-style: none; font-size: 14px; line-height: 2;">
+              <li>— Shopify OS 2.0 Native</li>
+              <li>— Liquid / App Ecosystems</li>
+              <li>— API Integration Layer</li>
+            </ul>
+          </div>
+          <div>
+            <span class="h-unit">Methodology</span>
+            <ul style="list-style: none; font-size: 14px; line-height: 2;">
+              <li>— Swiss Grid Systems</li>
+              <li>— Structural Minimalist</li>
+              <li>— Brutalist Honesty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 03: WORK GALLERY -->
+    <section class="module">
+      <div class="module-inner" style="border-bottom: var(--border); background: var(--panel); grid-column: span 12;">
+        <span class="h-unit">02 // Selected Work</span>
+      </div>
+
+      <!-- Item 01 -->
+      <a href="#" class="work-item" style="grid-column: span 4;">
+        <div class="work-img-container">
+          <img src="assets/work-001.png" alt="Storefront" />
+        </div>
+        <span class="skill-id">PROJ-001</span>
+        <h3 class="skill-name">Storefront Architecture</h3>
+        <p style="font-size: 12px; margin-top: 10px; color: var(--ink-2);">Shopify Native Build</p>
+        <div class="work-detail-hidden" style="display: none;">
+          <strong>// SCOPE</strong><br>Full-scale architectural design for high-performance Shopify storefronts.<br><br>
+          <strong>// ENGINE</strong><br>Liquid / Hydrogen / JavaScript / CSS Variables.<br><br>
+          <strong>// IMPACT</strong><br>Optimized theme architecture resulting in 40% faster load times and increased
+          conversion metrics.
+        </div>
+      </a>
+      <!-- Item 02 -->
+      <a href="#" class="work-item" style="grid-column: span 4;">
+        <div class="work-img-container">
+          <img src="assets/work-002.png" alt="Control" />
+        </div>
+        <span class="skill-id">PROJ-002</span>
+        <h3 class="skill-name">Control Interfaces</h3>
+        <p style="font-size: 12px; margin-top: 10px; color: var(--ink-2);">Custom CRM / React</p>
+        <div class="work-detail-hidden" style="display: none;">
+          <strong>// SCOPE</strong><br>Custom internal management dashboards for operational data visualization.<br><br>
+          <strong>// ENGINE</strong><br>React / Node.js / Express / Postgres.<br><br>
+          <strong>// IMPACT</strong><br>Streamlined logistics tracking for 50+ concurrent users with real-time data
+          sync.
+        </div>
+      </a>
+      <!-- Item 03 -->
+      <a href="#" class="work-item" style="grid-column: span 4;">
+        <div class="work-img-container" style="border-right: none;">
+          <img src="assets/work-003.png" alt="Ecosystem" />
+        </div>
+        <span class="skill-id">PROJ-003</span>
+        <h3 class="skill-name">API Ecosystems</h3>
+        <p style="font-size: 12px; margin-top: 10px; color: var(--ink-2);">Backend Infrastructure</p>
+        <div class="work-detail-hidden" style="display: none;">
+          <strong>// SCOPE</strong><br>Backend infrastructure for cross-platform data synchronization.<br><br>
+          <strong>// ENGINE</strong><br>Node.js / GraphQL / Vercel / AWS Lambdas.<br><br>
+          <strong>// IMPACT</strong><br>Seamless multi-platform integration with 99.9% uptime and low-latency response.
+        </div>
+      </a>
+    </section>
+
+    <!-- MODULE 03: ENGINEERING CORE (DUAL STACK) -->
+    <section class="module dual-stack-layout">
+      <!-- Left: Capabilities -->
+      <div class="stack-half">
+        <div class="module-inner" style="border-bottom: var(--border); background: var(--panel);">
+          <span class="h-unit">03 // System Capabilities</span>
+        </div>
+        <div class="card-stack-container">
+          <div class="card-stack js-card-stack">
+            <div class="skill-card">
+              <div class="card-header">
+                <span>DOC-ID: CAP-01</span>
+                <span>SYS: CORE // REF</span>
+              </div>
+              <div class="card-body">
+                <h3 class="skill-name">E-commerce Architecture</h3>
+              </div>
+              <div class="card-footer">
+                <span>LIQUID</span>
+                <span>SHOPIFY</span>
+                <span>HYDROGEN</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="card-header">
+                <span>DOC-ID: CAP-02</span>
+                <span>SYS: INTG // REF</span>
+              </div>
+              <div class="card-body">
+                <h3 class="skill-name">System Integrations</h3>
+              </div>
+              <div class="card-footer">
+                <span>ERP / CRM</span>
+                <span>CUSTOM API</span>
+                <span>3PL</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="card-header">
+                <span>DOC-ID: CAP-03</span>
+                <span>SYS: ENGN // REF</span>
+              </div>
+              <div class="card-body">
+                <h3 class="skill-name">Core Web Engineering</h3>
+              </div>
+              <div class="card-footer">
+                <span>REACT / NODE</span>
+                <span>VERCEL</span>
+                <span>CI-CD</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="card-header">
+                <span>DOC-ID: CAP-04</span>
+                <span>SYS: DSGN // REF</span>
+              </div>
+              <div class="card-body">
+                <h3 class="skill-name">Design Systems</h3>
+              </div>
+              <div class="card-footer">
+                <span>BRUTALISM</span>
+                <span>TOKENS</span>
+                <span>GRID</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Technical Index -->
+      <div class="stack-half" style="border-left: var(--border);">
+        <div class="module-inner" style="border-bottom: var(--border); background: var(--panel);">
+          <span class="h-unit">04 // Technical Index</span>
+        </div>
+        <div class="skill-grid-container" style="padding: 0;"> <!-- Remove padding for full bleed grid -->
+          <div class="skill-grid">
+            <div class="skill-grid-item" data-level="95" data-desc="Advanced liquid customization, meta-object architecture, and OS 2.0 theme engineering.">
+              <div class="skill-meta"><span>STK-01</span><span>REV-A</span></div>
+              <h3 class="skill-name">LIQUID / OS 2.0</h3>
+            </div>
+            <div class="skill-grid-item" data-level="90" data-desc="Framer-motion integration, server-side rendering, and high-performance headless architecture.">
+              <div class="skill-meta"><span>STK-02</span><span>REV-A</span></div>
+              <h3 class="skill-name">REACT / NEXT.JS</h3>
+            </div>
+            <div class="skill-grid-item" data-level="85" data-desc="Robust backend infrastructure, express/nest.js patterns, and secure API gateways.">
+              <div class="skill-meta"><span>STK-03</span><span>REV-B</span></div>
+              <h3 class="skill-name">NODE / API</h3>
+            </div>
+            <div class="skill-grid-item" data-level="95" data-desc="Continuous deployment, edge functions, and global distribution optimization.">
+              <div class="skill-meta"><span>STK-04</span><span>REV-A</span></div>
+              <h3 class="skill-name">VERCEL / OPS</h3>
+            </div>
+            <div class="skill-grid-item" data-level="80" data-desc="Complex data fetching, schema design, and highly optimized query logic.">
+              <div class="skill-meta"><span>STK-05</span><span>REV-C</span></div>
+              <h3 class="skill-name">GRAPHQL / REST</h3>
+            </div>
+            <div class="skill-grid-item" data-level="75" data-desc="Scalable cloud infrastructure, S3 storage, and serverless compute environments.">
+              <div class="skill-meta"><span>STK-06</span><span>REV-A</span></div>
+              <h3 class="skill-name">AWS / CLOUD</h3>
+            </div>
+            <div class="skill-grid-item" data-level="70" data-desc="Containerization of dev environments and robust infrastructure-as-code patterns.">
+              <div class="skill-meta"><span>STK-07</span><span>REV-B</span></div>
+              <h3 class="skill-name">DOCKER / INFRA</h3>
+            </div>
+            <div class="skill-grid-item" data-level="90" data-desc="Version control mastery, automated testing, and zero-downtime deployment pipelines.">
+              <div class="skill-meta"><span>STK-08</span><span>REV-A</span></div>
+              <h3 class="skill-name">GIT / CI-CD</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 05: METHODOLOGY -->
+    <section class="module">
+      <div class="content-cell-left">
+        <span class="h-unit">05 // Methodology</span>
+      </div>
+      <div class="content-cell-right">
+        <h2 class="h-massive" style="font-size: 32px; margin-bottom: 24px;">Built for Logic, not just aesthetics.</h2>
+        <p class="p-data">
+          My approach is rooted in structural honesty. I build systems that prioritize performance
+          and engineering excellence, treating every digital interface as a piece of architectural software
+          that must be robust, modular, and mathematically sound.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- MODULE 07: FOOTER -->
+    <footer id="mainFooter" class="module" style="background: var(--ink); color: #fff; border-bottom: none;">
+      <div class="module-inner">
+        <!-- New Minimalist Profile Identity -->
+        <div class="footer-profile">
+          <div class="footer-profile-img">
+            <img src="assets/profile-identity.jpg" alt="Ivan Affriandi Portrait" />
+          </div>
+          <div class="footer-profile-text">
+            <span class="h-unit" style="border-color: #fff; margin-bottom: 15px;">BIO-01 // Identity</span>
+            <p style="font-size: 14px; line-height: 1.5; opacity: 0.9; max-width: 500px;">
+              Based in Jakarta, I build high-performance digital architecture focusing 
+              on the structural integrity of every pixel and line of code.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div>
+            <span class="h-unit" style="border-color: #fff;">Connect // Social</span>
+            <div style="margin-top: 12px; display: flex; gap: 20px;">
+              <a href="https://github.com/ivanaffriandi" target="_blank" class="social-icon-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="lucide lucide-github">
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+              <a href="https://instagram.com/ivanaffriandi" target="_blank" class="social-icon-link" title="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="lucide lucide-instagram">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a href="mailto:ivanaffriandi@icloud.com" class="social-icon-link" title="Email">
+                <i data-lucide="mail"></i>
+              </a>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div id="footerClock"
+              style="font-family: var(--mono); font-size: 32px; font-weight: 900; margin-bottom: 10px;">00:00:00</div>
+            <span class="h-unit" style="border-color: #fff; margin-bottom: 0;">WIB TIME ZONE / IDN</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" id="closeModal">CLOSE // X</button>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img id="modalImg" src="" alt="Project Image" />
+        </div>
+        <div class="modal-text-wrap">
+          <span class="skill-id" id="modalId">PROJ-000</span>
+          <h2 class="h-massive" id="modalTitle" style="font-size: 48px; margin-top: 10px;">Project Title</h2>
+          <p id="modalDesc" class="p-data" style="margin-top: 24px; max-width: 100%;">Project description content.</p>
+
+          <div style="margin-top: 40px; border-top: var(--border); padding-top: 24px;">
+            <span class="h-unit">Structural Specs</span>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 20px; font-family: var(--mono); font-size: 12px; gap: 20px;">
+              <div>
+                <p style="opacity: 0.6; margin-bottom: 5px;">STATUS</p>
+                <p>DEPLOYED // ACTIVE</p>
+              </div>
+              <div>
+                <p style="opacity: 0.6; margin-bottom: 5px;">ENGINE</p>
+                <p>LIQUID / CANVAS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

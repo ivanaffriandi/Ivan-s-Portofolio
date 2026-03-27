@@ -1,0 +1,12 @@
+{
+  "name": "ivan-affriandi-portfolio",
+  "version": "1.0.0",
+  "description": "Swiss Brutalist Portfolio site",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
