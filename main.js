@@ -68,38 +68,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
   const closeModalBtn = document.getElementById('closeModal');
+  // Project Modal Items (Work Items)
   const workItems = document.querySelectorAll('.work-item');
+  const skillItems = document.querySelectorAll('.skill-grid-item, .list-system-item');
 
   function openModal(item) {
-    const isSkill = item.classList.contains('skill-grid-item');
+    const isSkill = item.classList.contains('skill-grid-item') || item.classList.contains('list-system-item');
     
     if (isSkill) {
-      const id = item.querySelector('.skill-meta span:first-child').innerText;
-      const name = item.querySelector('.skill-name').innerText;
+      const id = item.querySelector('.skill-id, .item-id').innerText;
+      const name = item.querySelector('.skill-name, .item-label').innerText;
       const desc = item.getAttribute('data-desc');
-      const level = item.getAttribute('data-level');
+      const level = parseInt(item.getAttribute('data-level'));
+      const engine = item.getAttribute('data-engine') || 'TECHNICAL';
+      const rev = item.getAttribute('data-rev') || 'v1.0.0';
 
       modalImg.parentElement.style.display = 'none'; // Hide project image
       modalId.innerText = id;
       modalTitle.innerText = name;
       modalDesc.innerText = desc;
 
-      // Inject Skill Bar
+      // Inject Skill Specs
       const specsArea = modal.querySelector('.modal-text-wrap > div:last-child');
       specsArea.innerHTML = `
-        <span class="h-unit">EXPERTISE LEVEL</span>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 0%"></div>
+        <span class="h-unit">Structural Specs</span>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 20px; font-family: var(--mono); font-size: 12px; gap: 20px; margin-bottom: 30px;">
+          <div>
+            <p style="opacity: 0.6; margin-bottom: 5px;">ENGINE</p>
+            <p>${engine}</p>
           </div>
-          <span class="skill-percent">${level}%</span>
+          <div>
+            <p style="opacity: 0.6; margin-bottom: 5px;">REV-ID</p>
+            <p>${rev}</p>
+          </div>
         </div>
       `;
-
-      setTimeout(() => {
-        const fill = modal.querySelector('.skill-bar-fill');
-        if (fill) fill.style.width = level + '%';
-      }, 100);
 
     } else {
       // Original Project Modal Logic
@@ -114,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalTitle.innerText = title;
       modalDesc.innerHTML = desc;
 
-      // Restore Project Specs if overwritten
+      // Restore Project Specs
       const specsArea = modal.querySelector('.modal-text-wrap > div:last-child');
       specsArea.innerHTML = `
         <span class="h-unit">Structural Specs</span>
@@ -149,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Skill Items
-  const skillItems = document.querySelectorAll('.skill-grid-item');
   skillItems.forEach(item => {
     item.addEventListener('click', () => {
       openModal(item);
@@ -164,60 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ============================================================
-     MECHANICAL CARD STACKS LOGIC
-     ============================================================ */
-  function initializeCardStacks() {
-    const stacks = document.querySelectorAll('.js-card-stack');
-    
-    stacks.forEach(stack => {
-      let cards = Array.from(stack.querySelectorAll('.skill-card'));
-      
-      function updateStack() {
-        cards.forEach((card, index) => {
-          // Reset classes
-          card.classList.remove('is-moving');
-          
-          // Set visual properties based on index
-          // Only show up to 4 cards in the visual deck
-          if (index < 4) {
-            card.style.zIndex = 4 - index;
-            card.style.transform = `translate(${index * 8}px, ${index * 8}px)`;
-            card.style.opacity = 1;
-            card.style.pointerEvents = index === 0 ? 'auto' : 'none';
-          } else {
-            card.style.zIndex = 0;
-            card.style.transform = `translate(32px, 32px)`;
-            card.style.opacity = 0;
-            card.style.pointerEvents = 'none';
-          }
-        });
-      }
-
-      stack.addEventListener('click', (e) => {
-        const topCard = cards[0];
-        if (!topCard || topCard.classList.contains('is-moving')) return;
-
-        // Animate top card out
-        topCard.classList.add('is-moving');
-        
-        setTimeout(() => {
-          // Move top card to the back of the array
-          const movedCard = cards.shift();
-          cards.push(movedCard);
-          
-          // Refresh the stack visuals
-          updateStack();
-        }, 500); // Match CSS transition duration
-      });
-
-      // Initial positioning
-      updateStack();
-    });
-  }
-
-  initializeCardStacks();
-
-  /* ============================================================
      PREMIUM POLISH: CUSTOM CURSOR LOGIC
      ============================================================ */
   const cursor = document.getElementById('customCursor');
@@ -228,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cursor.style.top = e.clientY + 'px';
     });
 
-    const interactives = document.querySelectorAll('a, button, .work-item, #emailClick, .social-icon-link, .skill-card, .skill-grid-item');
+    const interactives = document.querySelectorAll('a, button, .work-item, #emailClick, .social-icon-link, .list-system-item, .skill-grid-item');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.classList.add('hovered');
@@ -237,7 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.classList.remove('hovered');
       });
     });
-
-    // Removed scroll progress logic
   }
 });
